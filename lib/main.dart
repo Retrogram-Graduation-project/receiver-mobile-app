@@ -58,7 +58,11 @@ class _MyBodyState extends State<Body> {
     }
     switch (mode) {
       case Mode.TEXT:
-        return SentText(sentText: sentText);
+        return SentText(
+          sentText: sentText,
+          color: color,
+          fontSize: fontSize,
+        );
 
       case Mode.IMAGE:
         return SentImage(
@@ -176,7 +180,10 @@ class _MyBodyState extends State<Body> {
           mode = Mode.DRAW;
           break;
         case "t45:": // text
-          sentText = str.split(":")[1];
+          List<String> data = str.split("\n");
+          sentText = data[1];
+          color = Color(int.parse("0x${data[2]}"));
+          fontSize = double.parse(data[3]);
           filePath = null;
           controller = PhotoViewController(initialScale: 0.1);
           points = [];
@@ -189,6 +196,8 @@ class _MyBodyState extends State<Body> {
   }
 
   String sentText;
+  Color color;
+  double fontSize;
   String filePath;
   PhotoViewControllerBase controller;
   List<DrawingArea> points;

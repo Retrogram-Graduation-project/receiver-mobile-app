@@ -7,6 +7,10 @@ class DefaultWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('logo');
+    return Image.asset(
+      'assets/logo.png',
+      width: 150,
+      height: 150,
+    );
   }
 }

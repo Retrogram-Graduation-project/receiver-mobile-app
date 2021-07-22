@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class SentText extends StatelessWidget {
   const SentText({
@@ -14,11 +15,15 @@ class SentText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      sentText,
-      style: TextStyle(
-        color: color,
-        fontSize: fontSize,
+    return Transform(
+      alignment: Alignment.center,
+      transform: Matrix4.rotationY(pi),
+      child: Text(
+        sentText,
+        style: TextStyle(
+          color: color,
+          fontSize: fontSize,
+        ),
       ),
     );
   }

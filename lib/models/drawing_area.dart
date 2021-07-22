@@ -6,7 +6,10 @@ class DrawingArea {
 
   DrawingArea.fromMap(String data) {
     List<dynamic> d = data.split(',');
-    point = Offset(double.parse(d[0]), double.parse(d[1]));
+    print(d[0]);
+    print(d[1]);
+    point =
+        Offset(double.parse(d[0]) / 2.048, double.parse(d[1]) / 4.465777778);
     areaPaint = Paint();
 
     String c = d[2];

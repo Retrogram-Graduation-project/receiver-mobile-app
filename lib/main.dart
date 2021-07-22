@@ -6,6 +6,7 @@ import 'package:receiver_app/models/drawing_area.dart';
 import 'package:receiver_app/widgets/default_widget.dart';
 import 'package:receiver_app/widgets/image_widget.dart';
 import 'package:receiver_app/widgets/text_widget.dart';
+import 'package:receiver_app/widgets/to_holo.dart';
 import 'widgets/custom_painter.dart';
 
 void main() => runApp(MyApp());
@@ -71,8 +72,12 @@ class _MyBodyState extends State<Body> {
         );
 
       case Mode.DRAW:
-        return CustomPaint(
-          painter: MyCustomPainter(points: points),
+        return Container(
+          width: 150,
+          height: 150,
+          child: CustomPaint(
+            painter: MyCustomPainter(points: points),
+          ),
         );
 
       default:
@@ -91,13 +96,7 @@ class _MyBodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     // divide widgets here
-    return Center(
-      child: Container(
-        width: 500,
-        height: 500,
-        child: _getCurrentChild(),
-      ),
-    );
+    return ToHolo(_getCurrentChild());
   }
 
   void discover() async {
